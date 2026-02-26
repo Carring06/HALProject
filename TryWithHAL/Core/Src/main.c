@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "i2c.h"
 #include "tim.h"
 #include "usart.h"
@@ -32,6 +33,7 @@
 #include "key.h"
 #include "BLE_Serial.h"
 #include "MPU6050.h"
+#include "vofa.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -76,9 +78,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 /* USER CODE END 0 */
 
 /**
- * @brief  The application entry point.
- * @retval int
- */
+  * @brief  The application entry point.
+  * @retval int
+  */
 int main(void)
 {
 
@@ -104,11 +106,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_TIM1_Init();
   MX_I2C1_Init();
   MX_USART1_UART_Init();
   MX_TIM2_Init();
   MX_I2C2_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim1); // 启动TIM1
   HAL_TIM_Base_Start(&htim2);    // 启动TIM2
@@ -121,38 +125,10 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  OLED_ShowString(0, 0, "ID:", OLED_6X8);  // 显示静态字符串
-  ID = MPU6050_GetID();                    // 获取MPU6050的ID号
-  OLED_ShowHexNum(32, 0, ID, 2, OLED_6X8); // OLED显示ID号
-  OLED_Update();
   while (1)
   {
-     /*       X轴 127
-      0  *.-- -- -- -- -- -- -- -- -- -- -- -- -- -- --->|
-     *   |
-     *   |
-     *   |
-     *Y  |
-     *   |
-     *   |
-     *   |
-     * 63|
-     *   v
-     */
-    MPU6050_GetData(&AX, &AY, &AZ, &GX, &GY, &GZ); // 获取MPU6050的数据
-    OLED_ShowString(0, 16, "AX:", OLED_6X8);
-    OLED_ShowSignedNum(18, 16, AX, 5, OLED_6X8); // OLED显示数据
-    OLED_ShowString(0, 32, "AY:", OLED_6X8);
-    OLED_ShowSignedNum(18, 32, AY, 5, OLED_6X8);
-    OLED_ShowString(0, 48, "AZ:", OLED_6X8);
-    OLED_ShowSignedNum(18, 48, AZ, 5, OLED_6X8);
-    OLED_ShowString(62, 16, "GX:", OLED_6X8);
-    OLED_ShowSignedNum(78, 16, GX, 5, OLED_6X8);
-    OLED_ShowString(62, 32, "GY:", OLED_6X8);
-    OLED_ShowSignedNum(78, 32, GY, 5, OLED_6X8);
-    OLED_ShowString(62, 48, "GZ:", OLED_6X8);
-    OLED_ShowSignedNum(78, 48, GZ, 5, OLED_6X8);
-    OLED_Update();
+        JustFloat_Example();
+        HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -161,17 +137,17 @@ int main(void)
 }
 
 /**
- * @brief System Clock Configuration
- * @retval None
- */
+  * @brief System Clock Configuration
+  * @retval None
+  */
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
-   * in the RCC_OscInitTypeDef structure.
-   */
+  * in the RCC_OscInitTypeDef structure.
+  */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
@@ -185,8 +161,9 @@ void SystemClock_Config(void)
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
-   */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
@@ -203,9 +180,9 @@ void SystemClock_Config(void)
 /* USER CODE END 4 */
 
 /**
- * @brief  This function is executed in case of error occurrence.
- * @retval None
- */
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
@@ -218,12 +195,12 @@ void Error_Handler(void)
 }
 #ifdef USE_FULL_ASSERT
 /**
- * @brief  Reports the name of the source file and the source line number
- *         where the assert_param error has occurred.
- * @param  file: pointer to the source file name
- * @param  line: assert_param error line source number
- * @retval None
- */
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */

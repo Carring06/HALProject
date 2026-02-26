@@ -2,6 +2,7 @@
 "key_trywithjal\startup_stm32f103xb.o"
 "key_trywithjal\main.o"
 "key_trywithjal\gpio.o"
+"key_trywithjal\dma.o"
 "key_trywithjal\i2c.o"
 "key_trywithjal\tim.o"
 "key_trywithjal\usart.o"
@@ -28,6 +29,7 @@
 "key_trywithjal\key.o"
 "key_trywithjal\ble_serial.o"
 "key_trywithjal\mpu6050.o"
+"key_trywithjal\vofa.o"
 --strict --scatter "Key_TryWithJAL\Key_TryWithJAL.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

@@ -2,52 +2,52 @@
 #include "MPU6050_Reg.h"
 #include "i2c.h"
 
-#define MPU6050_ADDRESS		0xD0		//MPU6050µÄI2C´Ó»úµØÖ·
+#define MPU6050_ADDRESS		0xD0		//MPU6050çš„I2Cä»æœºåœ°å€
 
 /**
- * @brief  MPU6050Ğ´¼Ä´æÆ÷
- * @param  RegAddress: ¼Ä´æÆ÷µØÖ·
- * @param  Data: ÒªĞ´ÈëµÄÊı¾İ
- * @retval ÎŞ
+ * @brief  MPU6050å†™å¯„å­˜å™¨
+ * @param  RegAddress: å¯„å­˜å™¨åœ°å€
+ * @param  Data: è¦å†™å…¥çš„æ•°æ®
+ * @retval æ— 
  */
 void MPU6050_WriteReg(uint8_t RegAddress, uint8_t Data)
 {
-    // HAL¿âÓ²¼şI2CĞ´²Ù×÷£º×Ô¶¯´¦ÀíSTART/STOPÊ±Ğò£¬ÎŞĞèÊÖ¶¯µÈ´ıÊÂ¼ş
+    // HALåº“è‡ªå¸¦I2Cå†™å‡½æ•°ï¼šè‡ªåŠ¨å¤„ç†START/STOPä¿¡å·ï¼Œæ— éœ€æ‰‹åŠ¨ç­‰å¾…åº”ç­”ç­‰æ“ä½œ
     HAL_I2C_Mem_Write(&hi2c2, MPU6050_ADDRESS, RegAddress, I2C_MEMADD_SIZE_8BIT, &Data, 1, 100);
 }
 
 /**
- * @brief  MPU6050¶Á¼Ä´æÆ÷
- * @param  RegAddress: ¼Ä´æÆ÷µØÖ·
- * @retval ¶ÁÈ¡µ½µÄ¼Ä´æÆ÷Êı¾İ
+ * @brief  MPU6050è¯»å¯„å­˜å™¨
+ * @param  RegAddress: å¯„å­˜å™¨åœ°å€
+ * @retval è¯»å–åˆ°çš„å¯„å­˜å™¨æ•°æ®
  */
 uint8_t MPU6050_ReadReg(uint8_t RegAddress)
 {
     uint8_t Data;
-    // HAL¿âÓ²¼şI2C¶Á²Ù×÷£º×Ô¶¯´¦ÀíÖØ¸´START/STOPÊ±Ğò
+    // HALåº“è‡ªå¸¦I2Cè¯»å‡½æ•°ï¼šè‡ªåŠ¨å¤„ç†é‡å¤START/STOPä¿¡å·
     HAL_I2C_Mem_Read(&hi2c2, MPU6050_ADDRESS, RegAddress, I2C_MEMADD_SIZE_8BIT, &Data, 1, 100);
     return Data;
 }
 
 /**
- * @brief  MPU6050³õÊ¼»¯
- * @note   µ×²ãI2CÓ²¼ş³õÊ¼»¯ÒÑÓÉCubeMX×Ô¶¯Éú³É£¬´Ë´¦½öÅäÖÃMPU6050¼Ä´æÆ÷
- * @retval ÎŞ
+ * @brief  MPU6050åˆå§‹åŒ–
+ * @note   ç¡¬ä»¶I2Cåˆå§‹åŒ–å·²ç”±CubeMXè‡ªåŠ¨é…ç½®ï¼Œæ­¤å¤„ä»…é…ç½®MPU6050å¯„å­˜å™¨
+ * @retval æ— 
  */
 void MPU6050_Init(void)
 {
-    /* MPU6050¼Ä´æÆ÷³õÊ¼»¯£¨ÓëÔ­Âß¼­ÍêÈ«Ò»ÖÂ£© */
-    MPU6050_WriteReg(MPU6050_PWR_MGMT_1, 0x01);		//µçÔ´¹ÜÀí¼Ä´æÆ÷1£ºÈ¡ÏûĞİÃß£¬Ñ¡ÔñXÖáÍÓÂİÒÇÎªÊ±ÖÓÔ´
-    MPU6050_WriteReg(MPU6050_PWR_MGMT_2, 0x00);		//µçÔ´¹ÜÀí¼Ä´æÆ÷2£ºËùÓĞÖá²»ĞİÃß
-    MPU6050_WriteReg(MPU6050_SMPLRT_DIV, 0x09);		//²ÉÑùÂÊ·ÖÆµ¼Ä´æÆ÷£ºÅäÖÃ²ÉÑùÂÊ
-    MPU6050_WriteReg(MPU6050_CONFIG, 0x06);			//ÅäÖÃ¼Ä´æÆ÷£ºÅäÖÃDLPFÂË²¨
-    MPU6050_WriteReg(MPU6050_GYRO_CONFIG, 0x18);	//ÍÓÂİÒÇÅäÖÃ£ºÑ¡ÔñÁ¿³Ì¡À2000¡ã/s
-    MPU6050_WriteReg(MPU6050_ACCEL_CONFIG, 0x18);	//¼ÓËÙ¶È¼ÆÅäÖÃ£ºÑ¡ÔñÁ¿³Ì¡À16g
+    /* MPU6050å¯„å­˜å™¨åˆå§‹åŒ–ï¼ˆä¸åŸå‚æ‰‹å†Œå®Œå…¨ä¸€è‡´ï¼‰ */
+    MPU6050_WriteReg(MPU6050_PWR_MGMT_1, 0x01);		//ç”µæºç®¡ç†å¯„å­˜å™¨1ï¼šå–æ¶ˆä¼‘çœ ï¼Œé€‰æ‹©Xè½´é™€èºä¸ºæ—¶é’Ÿæº
+    MPU6050_WriteReg(MPU6050_PWR_MGMT_2, 0x00);		//ç”µæºç®¡ç†å¯„å­˜å™¨2ï¼šæ‰€æœ‰è½´ä¸ä¼‘çœ 
+    MPU6050_WriteReg(MPU6050_SMPLRT_DIV, 0x09);		//é‡‡æ ·ç‡åˆ†é¢‘å¯„å­˜å™¨ï¼šé…ç½®é‡‡æ ·ç‡
+    MPU6050_WriteReg(MPU6050_CONFIG, 0x06);			//é…ç½®å¯„å­˜å™¨ï¼šé…ç½®DLPFä½é€šæ»¤æ³¢
+    MPU6050_WriteReg(MPU6050_GYRO_CONFIG, 0x18);	//é™€èºé…ç½®ï¼šé€‰æ‹©é‡ç¨‹ä¸º2000Â°/s
+    MPU6050_WriteReg(MPU6050_ACCEL_CONFIG, 0x18);	//åŠ é€Ÿåº¦è®¡é…ç½®ï¼šé€‰æ‹©é‡ç¨‹ä¸º16g
 }
 
 /**
- * @brief  MPU6050»ñÈ¡ID
- * @retval MPU6050µÄWHO_AM_I¼Ä´æÆ÷Öµ£¨¹Ì¶¨Îª0x68£©
+ * @brief  MPU6050è·å–ID
+ * @retval MPU6050çš„WHO_AM_Iå¯„å­˜å™¨å€¼ï¼ˆå›ºå®šä¸º0x68ï¼‰
  */
 uint8_t MPU6050_GetID(void)
 {
@@ -55,17 +55,17 @@ uint8_t MPU6050_GetID(void)
 }
 
 /**
- * @brief  MPU6050»ñÈ¡´«¸ĞÆ÷Êı¾İ
- * @param  AccX/AccY/AccZ: ¼ÓËÙ¶È¼ÆX/Y/ZÖáÊı¾İÖ¸Õë
- * @param  GyroX/GyroY/GyroZ: ÍÓÂİÒÇX/Y/ZÖáÊı¾İÖ¸Õë
- * @retval ÎŞ
+ * @brief  MPU6050è·å–åŸå§‹æ•°æ®
+ * @param  AccX/AccY/AccZ: åŠ é€Ÿåº¦è®¡X/Y/Zè½´æ•°æ®æŒ‡é’ˆ
+ * @param  GyroX/GyroY/GyroZ: é™€èºä»ªX/Y/Zè½´æ•°æ®æŒ‡é’ˆ
+ * @retval æ— 
  */
 void MPU6050_GetData(int16_t *AccX, int16_t *AccY, int16_t *AccZ,
                      int16_t *GyroX, int16_t *GyroY, int16_t *GyroZ)
 {
     uint8_t DataH, DataL;
 
-    // ¼ÓËÙ¶È¼ÆÊı¾İ¶ÁÈ¡
+    // åŠ é€Ÿåº¦è®¡æ•°æ®è¯»å–
     DataH = MPU6050_ReadReg(MPU6050_ACCEL_XOUT_H);
     DataL = MPU6050_ReadReg(MPU6050_ACCEL_XOUT_L);
     *AccX = (DataH << 8) | DataL;
@@ -78,7 +78,7 @@ void MPU6050_GetData(int16_t *AccX, int16_t *AccY, int16_t *AccZ,
     DataL = MPU6050_ReadReg(MPU6050_ACCEL_ZOUT_L);
     *AccZ = (DataH << 8) | DataL;
 
-    // ÍÓÂİÒÇÊı¾İ¶ÁÈ¡
+    // é™€èºä»ªæ•°æ®è¯»å–
     DataH = MPU6050_ReadReg(MPU6050_GYRO_XOUT_H);
     DataL = MPU6050_ReadReg(MPU6050_GYRO_XOUT_L);
     *GyroX = (DataH << 8) | DataL;
