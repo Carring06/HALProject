@@ -29,6 +29,7 @@ key_trywithjal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 key_trywithjal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 key_trywithjal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 key_trywithjal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+key_trywithjal\main.o: ../Core/Inc/dma.h
 key_trywithjal\main.o: ../Core/Inc/i2c.h
 key_trywithjal\main.o: ../Core/Inc/tim.h
 key_trywithjal\main.o: ../Core/Inc/usart.h
@@ -42,3 +43,4 @@ key_trywithjal\main.o: ../User/inc/key.h
 key_trywithjal\main.o: ../User/inc/BLE_Serial.h
 key_trywithjal\main.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdio.h
 key_trywithjal\main.o: ../User/inc/MPU6050.h
+key_trywithjal\main.o: ../User/inc/vofa.h
