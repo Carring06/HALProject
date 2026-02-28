@@ -30,6 +30,7 @@
 "key_trywithjal\ble_serial.o"
 "key_trywithjal\mpu6050.o"
 "key_trywithjal\vofa.o"
+"key_trywithjal\encoder.o"
 --strict --scatter "Key_TryWithJAL\Key_TryWithJAL.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
