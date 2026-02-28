@@ -149,7 +149,7 @@ void Buzzer_Task(void *argument)
 }
 
 /*
-  TB6612的5V供电太小，只能驱动一个电机转动，特此说明
+TB6612的5V供电太小，只能驱动一个电机转动，特此说明-----其实是因为电脑的USB供电太小了.......
 */
 void Motor_Task(void *argument)
 {

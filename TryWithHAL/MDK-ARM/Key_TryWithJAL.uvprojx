@@ -849,6 +849,16 @@
               <FileType>5</FileType>
               <FilePath>..\User\inc\vofa.h</FilePath>
             </File>
+            <File>
+              <FileName>Encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\Encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>Encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\inc\Encoder.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
