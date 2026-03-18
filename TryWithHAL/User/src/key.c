@@ -39,14 +39,14 @@ uint8_t Key_GetState(uint8_t n)
             return KEY_PRESSED;
         }
     }
-    // else if (n == KEY_2)
-    // {
-    //     // PB11为上拉输入，按下时为低电平
-    //     if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_11) == GPIO_PIN_RESET)
-    //     {
-    //         return KEY_PRESSED;
-    //     }
-    // }
+     else if (n == KEY_2)
+     {
+         // PB11为上拉输入，按下时为低电平
+         if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_11) == GPIO_PIN_RESET)
+         {
+             return KEY_PRESSED;
+         }
+     }
     else if (n == KEY_3)
     {
         // PB13为下拉输入，按下时为高电平（GPIO_PIN_SET）

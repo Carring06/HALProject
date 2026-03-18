@@ -35,6 +35,7 @@
 #include "MPU6050.h"
 #include "vofa.h"
 #include "Encoder.h"
+#include "bsp_dwt.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,6 +62,7 @@ uint8_t ID;                     // 定义用于存放ID号的变量
 int16_t AX, AY, AZ, GX, GY, GZ; // 定义用于存放各个数据的变量
 int16_t speed;
 uint16_t count;
+		static int32_t c = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -75,6 +77,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   if (htim->Instance == TIM1)
   {
+
+		c++;
     Key_Tick(); // 例如：1ms调用一次按键扫描
     count++;
     if (count == 1000)
@@ -87,9 +91,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 /* USER CODE END 0 */
 
 /**
- * @brief  The application entry point.
- * @retval int
- */
+  * @brief  The application entry point.
+  * @retval int
+  */
 int main(void)
 {
 
@@ -131,65 +135,24 @@ int main(void)
   BLE_Serial_Init();
   MPU6050_Init();
   Encoder_Init();
+	DWT_Init(72);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-       if (Serial_RxFlag == 1)
-    {
-      OLED_ShowString(4, 1, "                ", OLED_8X16);
-      OLED_ShowString(4, 1, Serial_RxPacket, OLED_8X16);
-      OLED_ShowString(4, 1, Serial_RxPacket, OLED_8X16);
+		uint32_t cnt = DWT->CYCCNT;
+	  OLED_Printf(0, 0, OLED_8X16, "1");
+//		OLED_Update();		
+//		HAL_Delay(2000);
+		float dt = DWT_GetDeltaT(&cnt);
 
-      // strtok strcmp atoi/atof
-
-      char *Tag = strtok(Serial_RxPacket, ",");
-      if (strcmp(Tag, "key") == 0)
-      {
-        char *Name = strtok(NULL, ",");
-        char *Action = strtok(NULL, ",");
-
-        if (strcmp(Name, "1") == 0 && strcmp(Action, "up") == 0)
-        {
-          BLE_Serial_Printf("key,1,up\r\n");
-        }
-        else if (strcmp(Name, "2") == 0 && strcmp(Action, "down") == 0)
-        {
-          BLE_Serial_Printf("key,2,down\r\n");
-        }
-      }
-      else if (strcmp(Tag, "slider") == 0)
-      {
-        char *Name = strtok(NULL, ",");
-        char *Value = strtok(NULL, ",");
-
-        if (strcmp(Name, "1") == 0)
-        {
-          uint8_t IntValue = atoi(Value);
-
-          BLE_Serial_Printf("slider,1,%d\r\n", IntValue);
-        }
-        else if (strcmp(Name, "2") == 0)
-        {
-          float FloatValue = atof(Value);
-
-          BLE_Serial_Printf("slider,2,%f\r\n", FloatValue);
-        }
-      }
-      else if (strcmp(Tag, "joystick") == 0)
-      {
-        int8_t LH = atoi(strtok(NULL, ","));
-        int8_t LV = atoi(strtok(NULL, ","));
-        int8_t RH = atoi(strtok(NULL, ","));
-        int8_t RV = atoi(strtok(NULL, ","));
-
-        BLE_Serial_Printf("joystick,%d,%d,%d,%d\r\n", LH, LV, RH, RV);
-      }
-
-      Serial_RxFlag = 0;
-    }
+		OLED_Printf(0, 0, OLED_8X16, "time:%f",dt);
+		float msdt =DWT_GetTimeline_ms();
+		OLED_Printf(0, 16, OLED_8X16, "%f",msdt);
+		OLED_Printf(0, 32, OLED_8X16, "%05d",c);
+		OLED_Update();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -198,17 +161,17 @@ int main(void)
 }
 
 /**
- * @brief System Clock Configuration
- * @retval None
- */
+  * @brief System Clock Configuration
+  * @retval None
+  */
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
-   * in the RCC_OscInitTypeDef structure.
-   */
+  * in the RCC_OscInitTypeDef structure.
+  */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
@@ -222,8 +185,9 @@ void SystemClock_Config(void)
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
-   */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
@@ -240,9 +204,9 @@ void SystemClock_Config(void)
 /* USER CODE END 4 */
 
 /**
- * @brief  This function is executed in case of error occurrence.
- * @retval None
- */
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
@@ -255,12 +219,12 @@ void Error_Handler(void)
 }
 #ifdef USE_FULL_ASSERT
 /**
- * @brief  Reports the name of the source file and the source line number
- *         where the assert_param error has occurred.
- * @param  file: pointer to the source file name
- * @param  line: assert_param error line source number
- * @retval None
- */
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
