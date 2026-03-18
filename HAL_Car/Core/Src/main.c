@@ -17,7 +17,7 @@
  */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "main.h"//halhalhal
 #include "dma.h"
 #include "i2c.h"
 #include "tim.h"
@@ -105,13 +105,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         Complementary_Filter();
         Act_speedM1 = Encoder_GetM1() / 44.0 / 0.05 / 9.27666;  // 轮速计测量
         Act_speedM2 = -Encoder_GetM2() / 44.0 / 0.05 / 9.27666; // 轮速计测量
-        Car_SpeedM1Driver();
+        // Car_SpeedM1Driver();
 
-        Car_SpeedM2Driver();
+        // Car_SpeedM2Driver();
         // 1ms计算一次太快了，慢一点好吧
-        //  Car_UprightM1Driver();
+         Car_UprightM1Driver();
 
-        // Car_UprightM2Driver();
+        Car_UprightM2Driver();
       }
   }
 }

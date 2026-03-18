@@ -15,12 +15,16 @@ void Car_SpeedM1Driver(void);
 
 void Car_SpeedM2Driver(void);
 
-void Car_UprightM1Driver(float ComeInOut);
+// void Car_UprightM1Driver(float ComeInOut);
 
-void Car_UprightM2Driver(float ComeInOut);
+// void Car_UprightM2Driver(float ComeInOut);
 
 // void Car_SpeedM1Driver(void);
 
 // void Car_SpeedM2Driver(void);
+
+void Car_UprightM1Driver(void);
+
+void Car_UprightM2Driver(void);
 
 #endif

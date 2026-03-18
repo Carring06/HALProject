@@ -859,6 +859,16 @@
               <FileType>5</FileType>
               <FilePath>..\User\inc\Encoder.h</FilePath>
             </File>
+            <File>
+              <FileName>bsp_dwt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\bsp_dwt.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_dwt.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\inc\bsp_dwt.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

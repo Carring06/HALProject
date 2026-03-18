@@ -34,31 +34,31 @@ PID_t Car_SpeedM2PID = {
 
 };
 
-void Car_SpeedM1Driver(void)
-{
+// void Car_SpeedM1Driver(void)
+// {
 
-    /*传实际速度*/
+//     /*传实际速度*/
 
-    // 这里读取实际速度可能有误                                
-    Car_SpeedM1PID.Actual = Act_speedM1;                                
+//     // 这里读取实际速度可能有误                                
+//     Car_SpeedM1PID.Actual = Act_speedM1;                                
 
-    /*利用函数进行PID计算*/
-    PID_Update(&Car_SpeedM1PID);
-    /*输出PID值*/
-    Car_UprightM1Driver(Car_SpeedM1PID.Out);
-}
-void Car_SpeedM2Driver(void)
-{
-    /*传实际速度*/
+//     /*利用函数进行PID计算*/
+//     PID_Update(&Car_SpeedM1PID);
+//     /*输出PID值*/
+//     Car_UprightM1Driver(Car_SpeedM1PID.Out);
+// }
+// void Car_SpeedM2Driver(void)
+// {
+//     /*传实际速度*/
 
-    // 这里读取实际速度可能有误
-    Car_SpeedM2PID.Actual = Act_speedM2; 
+//     // 这里读取实际速度可能有误
+//     Car_SpeedM2PID.Actual = Act_speedM2; 
 
-    /*利用函数进行PID计算*/
-    PID_Update(&Car_SpeedM2PID);
-    /*输出PID值*/
-    Car_UprightM2Driver(Car_SpeedM2PID.Out);
-}
+//     /*利用函数进行PID计算*/
+//     PID_Update(&Car_SpeedM2PID);
+//     /*输出PID值*/
+//     Car_UprightM2Driver(Car_SpeedM2PID.Out);
+// }
 
 /*
         🔺🔺🔺左轮右轮都要🔺🔺🔺
@@ -101,11 +101,35 @@ PID_t Car_UprightM2PID = {
                    (2)电机反应慢，导致车轮转动速度不够快。车子在可以保持直立时（-a ~ 0 ~ +a），轮子跟不上，导致车子自身角度超出可直立的区间。     
                        解决方法：先去确定可直立的角度区间，然后调节电机转速，使得车轮转动速度足够快。
 */
-void Car_UprightM1Driver(float ComeInOut)
+// void Car_UprightM1Driver(float ComeInOut)
+// {
+//     Car_UprightM1PID.Target = ComeInOut; /*目标角度*/
+//         /*传实际角度*/
+//         Car_UprightM1PID.Actual = GetPitchAngle(); /*当前角度*/
+//     /*利用函数进行PID计算*/
+//     PID_Update(&Car_UprightM1PID);
+//     /*输出PID值*/
+//     // Car_SpeedM1Driver(Car_UprightM1PID.Out);
+//     MotorM1_Set(Car_UprightM1PID.Out);
+// }
+
+// void Car_UprightM2Driver(float ComeInOut)
+// {
+//     Car_UprightM2PID.Target = ComeInOut; /*目标角度*/
+//     /*传实际角度*/
+//     Car_UprightM2PID.Actual = GetPitchAngle(); /*当前角度*/
+//     /*利用函数进行PID计算*/
+//     PID_Update(&Car_UprightM2PID);
+//     /*输出PID值*/
+//     // Car_SpeedM2Driver(Car_UprightM2PID.Out);
+//     MotorM2_Set(Car_UprightM2PID.Out);
+// }
+
+void Car_UprightM1Driver(void)
 {
-    Car_UprightM1PID.Target = ComeInOut; /*目标角度*/
-        /*传实际角度*/
-        Car_UprightM1PID.Actual = GetPitchAngle(); /*当前角度*/
+     
+    /*传实际角度*/
+    Car_UprightM1PID.Actual = GetPitchAngle(); /*当前角度*/
     /*利用函数进行PID计算*/
     PID_Update(&Car_UprightM1PID);
     /*输出PID值*/
@@ -113,9 +137,9 @@ void Car_UprightM1Driver(float ComeInOut)
     MotorM1_Set(Car_UprightM1PID.Out);
 }
 
-void Car_UprightM2Driver(float ComeInOut)
+void Car_UprightM2Driver(void)
 {
-    Car_UprightM2PID.Target = ComeInOut; /*目标角度*/
+      
     /*传实际角度*/
     Car_UprightM2PID.Actual = GetPitchAngle(); /*当前角度*/
     /*利用函数进行PID计算*/

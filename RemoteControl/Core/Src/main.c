@@ -108,6 +108,23 @@ __HAL_DMA_ENABLE(huart->hdmarx);
 }
 
 /*
+static void USART_RxDMA_DoubleBuffer_Init(UART_HandleTypeDef *huart, uint32_t *DstAddress, uint32_t *SecondMemAddress, uint32_t DataLength) 
+{
+ huart->ReceptionType = HAL_UART_RECEPTION_TOIDLE; 
+
+ huart->RxEventType = HAL_UART_RXEVENT_IDLE; 
+
+ huart->RxXferSize    = DataLength; 
+
+ SET_BIT(huart->Instance->CR3,USART_CR3_DMAR); 
+
+ __HAL_UART_ENABLE_IT(huart, UART_IT_IDLE);  
+ 
+ HAL_DMAEx_MultiBufferStart(huart->hdmarx,(uint32_t)&huart->Instance->RDR,(uint32_t)DstAddress,(uint32_t)SecondMemAddress,DataLength); 
+ }
+*/
+
+/*
     解析DBUS数据包，并将其映射到遥控器控制值变量中
 */
 void DBUS_TO_RC(uint8_t *dbus_buf, RC_Ctl_t *rc_ctrl)

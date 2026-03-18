@@ -45,3 +45,4 @@ key_trywithjal\main.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdio.h
 key_trywithjal\main.o: ../User/inc/MPU6050.h
 key_trywithjal\main.o: ../User/inc/vofa.h
 key_trywithjal\main.o: ../User/inc/Encoder.h
+key_trywithjal\main.o: ../User/inc/bsp_dwt.h
