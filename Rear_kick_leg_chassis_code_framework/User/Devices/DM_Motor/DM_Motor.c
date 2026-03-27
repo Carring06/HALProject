@@ -41,6 +41,57 @@ DM_Motor_Info_Typedef Chassis_Leg_DM_Motor[2] = {
 	},
 };
 
+// 机械臂DM电机配置（全局数组，一次性初始化）
+DM_Motor_Info_Typedef Arm_DM_Motor[5] = {
+
+	[0] = {
+		.Mode = Pos_mode,
+		.Motor_Type = DM_J4310,
+		.ID_Set = {
+			.TxIdentifier = Manipulator_J4310_Motor_Arm4_TxID,
+			.RxIdentifier = Manipulator_J4310_Motor_Arm4_RxID,
+		}
+	},
+	
+	[1] = {
+		.Mode = Pos_mode,
+		.Motor_Type = DM_J8009,
+		.ID_Set = {
+			.TxIdentifier = Manipulator_J4310_Motor_Base_TxID,
+			.RxIdentifier = Manipulator_J4310_Motor_Base_RxID,
+		}
+	},
+	
+	[2] = {
+		.Mode = Pos_mode,
+		.Motor_Type = DM_J4340,
+		.ID_Set = {
+			.TxIdentifier = Manipulator_J4340_Motor_Jonit_TxID ,
+			.RxIdentifier = Manipulator_J4340_Motor_Jonit_RxID  ,
+		}
+	},
+	
+	[3] = {
+		.Mode = Pos_mode,
+		.Motor_Type = DM_J4310,
+		.ID_Set = {
+			.TxIdentifier = Manipulator_J4310_Motor_Rotate_TxID,
+			.RxIdentifier = Manipulator_J4310_Motor_Rotate_RxID
+		}
+	},
+	
+	[4] = {
+		.Mode = Pos_mode,
+		.Motor_Type = DM_J4310,
+		.ID_Set = {
+			.TxIdentifier = Manipulator_J4310_Motor_Gripper_TxID,
+			.RxIdentifier = Manipulator_J4310_Motor_Gripper_RxID,
+
+		}
+	},
+	
+};
+
 /* Static Fun -------------------------------------------------------------- */
 
 /* Functions --------------------------------------------------------------- */

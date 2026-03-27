@@ -172,24 +172,24 @@ int main(void)
 
   while (1)
   {
-    checkButtons();
+//    checkButtons();
 
-    if (Target_Speed > 20)
-    {
-      Target_Speed = -0;
-    }
-    else if (Target_Speed < -20)
-    {
-      Target_Speed = -0;
-    }
+//    if (Target_Speed > 20)
+//    {
+//      Target_Speed = -0;
+//    }
+//    else if (Target_Speed < -20)
+//    {
+//      Target_Speed = -0;
+//    }
 
-    HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &RxHeader, RxData);
-    //    uint16_t Cur_torque = ((RxData[4] & 0x0F) << 8) | RxData[5];
-    uint16_t Cur_Speed = RxData[3] << 4 | (RxData[4] & 0xF0) >> 4;
-    float ActualSpeed = uint_to_float(Cur_Speed, -30, 30, 12);
-    Set_DM4310_Speed(Target_Speed, ActualSpeed, &Speed_PID);
+//    HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &RxHeader, RxData);
+//    //    uint16_t Cur_torque = ((RxData[4] & 0x0F) << 8) | RxData[5];
+//    uint16_t Cur_Speed = RxData[3] << 4 | (RxData[4] & 0xF0) >> 4;
+//    float ActualSpeed = uint_to_float(Cur_Speed, -30, 30, 12);
+//    Set_DM4310_Speed(Target_Speed, ActualSpeed, &Speed_PID);
 
-    HAL_Delay(10);
+//    HAL_Delay(10);
 
     /* USER CODE END WHILE */
 

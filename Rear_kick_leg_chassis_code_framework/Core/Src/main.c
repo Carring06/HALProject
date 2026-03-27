@@ -37,6 +37,7 @@
 #include "bsp_can.h"
 #include "bsp_uart.h"
 #include "user_sys_config.h"
+#include "DM_Motor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -111,19 +112,19 @@ int main(void)
   /* USER CODE BEGIN 2 */
   MX_USB_DEVICE_Init();
   DWT_Init(480);
-  /*���ڳ�ʼ�� */
-  BSP_USART_Init();
-  /* ϵͳ�ӳ����� */
-  HAL_Delay(SYS_DELAY_START_TIME);
-  /* BMI088��ʼ�� */
-  while (BMI088_init(&hspi2, 0) != BMI088_NO_ERROR)
-  {
-	  ;
-  }
-  Power_OUT1_ON;//imu��ʼ����ɣ��ɿص�Դ�򿪣�led����
-  Power_OUT2_ON;
   
-  FDCAN1_Config();//can��������ʼ��
+  BSP_USART_Init();
+ 
+//  HAL_Delay(SYS_DELAY_START_TIME);
+//  
+//  while (BMI088_init(&hspi2, 0) != BMI088_NO_ERROR)
+//  {
+//	  ;
+//  }
+//  Power_OUT1_ON;
+//  Power_OUT2_ON;
+  
+  FDCAN1_Config();
   FDCAN2_Config();
   FDCAN3_Config();
 

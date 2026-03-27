@@ -36,6 +36,7 @@
 #include "can_bsp.h"
 #include "bsp_uart.h"
 #include "bsp_time.h"
+#include "dm4310_drv.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -118,15 +119,17 @@ int main(void)
 	/*���ڳ�ʼ��*/
 	BSP_USART_Init();
     /* BMI088��ʼ�� */
-	while (BMI088_init(&hspi2, 0) != BMI088_NO_ERROR)
-	{
-	  ;
-	}
+//	while (BMI088_init(&hspi2, 0) != BMI088_NO_ERROR)
+//	{
+//	  ;
+//	}
 	Power_OUT1_ON;//imu��ʼ����ɣ��ɿص�Դ�򿪣�led����
 	Power_OUT2_ON;
 	
 	FDCAN1_Config();//can��������ʼ��
 	FDCAN2_Config();
+	enable_motor_mode(&hfdcan2,0x04,MIT_MODE);
+	HAL_Delay(10);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

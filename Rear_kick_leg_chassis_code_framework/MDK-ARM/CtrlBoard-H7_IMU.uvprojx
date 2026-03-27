@@ -10,8 +10,9 @@
       <TargetName>CtrlBoard-H7_IMU</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
-      <uAC6>0</uAC6>
+      <pArmCC>6240000::V6.24::ARMCLANG</pArmCC>
+      <pCCUsed>6240000::V6.24::ARMCLANG</pCCUsed>
+      <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32H723VGTx</Device>
@@ -81,7 +82,7 @@
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>0</RunUserProg1>
-            <RunUserProg2>0</RunUserProg2>
+            <RunUserProg2>1</RunUserProg2>
             <UserProg1Name></UserProg1Name>
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
@@ -323,7 +324,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>3</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -340,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32H723xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;../Drivers/CMSIS/DSP/Include;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../User/Algorithm/EKF;../User/Algorithm/kalman;../User/Algorithm/mahony;../User/APP;../User/Bsp;../User/Devices/BMI088;../User/Devices/DM_Motor;../User/Algorithm/VMC;../User/Controller;../User/Lib;../User/Algorithm/PID;../User/Algorithm/filter;../User/Devices/Remote_Control;../User/Devices/DJI_Motor;../User/Config;../User/Devices/Unitree_Motor;../User/Algorithm/FIFO;../User/Algorithm/CRC;../USB_DEVICE/App;../USB_DEVICE/Target;../Middlewares/ST/STM32_USB_Device_Library/Core/Inc;../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;../Drivers/CMSIS/DSP/Include;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../User/Algorithm/EKF;../User/Algorithm/kalman;../User/Algorithm/mahony;../User/APP;../User/Bsp;../User/Devices/BMI088;../User/Devices/DM_Motor;../User/Algorithm/VMC;../User/Controller;../User/Lib;../User/Algorithm/PID;../User/Algorithm/filter;../User/Devices/Remote_Control;../User/Devices/DJI_Motor;../User/Config;../User/Devices/Unitree_Motor;../User/Algorithm/FIFO;../User/Algorithm/CRC;../USB_DEVICE/App;../USB_DEVICE/Target;../Middlewares/ST/STM32_USB_Device_Library/Core/Inc;../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc;../User/Algorithm</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1883,6 +1884,11 @@
               <FileName>INS_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\APP\INS_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>Manipulator_Task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\APP\Manipulator_Task.c</FilePath>
             </File>
           </Files>
         </Group>

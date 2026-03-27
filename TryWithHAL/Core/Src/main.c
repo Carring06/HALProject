@@ -142,16 +142,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		uint32_t cnt = DWT->CYCCNT;
-	  OLED_Printf(0, 0, OLED_8X16, "1");
-//		OLED_Update();		
-//		HAL_Delay(2000);
-		float dt = DWT_GetDeltaT(&cnt);
+		OLED_Printf(0,0,OLED_8X16, "按");
+//		uint32_t cnt = DWT->CYCCNT;
+//	  OLED_Printf(0, 0, OLED_8X16, "1");
+////		OLED_Update();		
+////		HAL_Delay(2000);
+//		float dt = DWT_GetDeltaT(&cnt);
 
-		OLED_Printf(0, 0, OLED_8X16, "time:%f",dt);
-		float msdt =DWT_GetTimeline_ms();
-		OLED_Printf(0, 16, OLED_8X16, "%f",msdt);
-		OLED_Printf(0, 32, OLED_8X16, "%05d",c);
+//		OLED_Printf(0, 0, OLED_8X16, "time:%f",dt);
+//		float msdt =DWT_GetTimeline_ms();
+//		OLED_Printf(0, 16, OLED_8X16, "%f",msdt);
+//		OLED_Printf(0, 32, OLED_8X16, "%05d",c);
 		OLED_Update();
     /* USER CODE END WHILE */
 
