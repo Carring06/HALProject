@@ -1,7 +1,7 @@
 #include "DM4310.h"
 
 
-#define motor_id 0x01
+#define motor_id 0x04
 #define mode_id 0x00                   // MIT模式的ID = 0x000 + CAN_ID
 
 uint16_t id = motor_id + mode_id;      //两个宏定义根据CAN_ID和Mode改

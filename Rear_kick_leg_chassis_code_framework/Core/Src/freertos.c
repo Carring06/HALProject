@@ -26,6 +26,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "INS_task.h"
+#include "DM_Motor.h"
+#include "fdcan.h"
+#include "Manipulator_Task.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,6 +54,7 @@ osThreadId defaultTaskHandle;
 osThreadId INS_TASKHandle;
 osThreadId CHASSIS_TASKHandle;
 osThreadId REMOTE_TASKHandle;
+osThreadId ManipulatorTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -61,6 +65,7 @@ void StartDefaultTask(void const * argument);
 void INS_Task(void const * argument);
 void Chassis_Task(void const * argument);
 void Remote_Task(void const * argument);
+void Manipulator_Task(void const * argument);
 
 extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -107,6 +112,10 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of REMOTE_TASK */
   osThreadDef(REMOTE_TASK, Remote_Task, osPriorityAboveNormal, 0, 256);
   REMOTE_TASKHandle = osThreadCreate(osThread(REMOTE_TASK), NULL);
+
+  /* definition and creation of ManipulatorTask */
+  osThreadDef(ManipulatorTask, Manipulator_Task, osPriorityAboveNormal, 0, 512);
+  ManipulatorTaskHandle = osThreadCreate(osThread(ManipulatorTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -187,6 +196,26 @@ void Remote_Task(void const * argument)
     osDelay(1);
   }
   /* USER CODE END Remote_Task */
+}
+
+/* USER CODE BEGIN Header_Manipulator_Task */
+/**
+* @brief Function implementing the ManipulatorTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Manipulator_Task */
+void Manipulator_Task(void const * argument)
+{
+  /* USER CODE BEGIN Manipulator_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+//		Enable_Motor_Mode(&hfdcan2, 0x19, POS_MODE, 1);
+		ManipulatorTask();
+    osDelay(1);
+  }
+  /* USER CODE END Manipulator_Task */
 }
 
 /* Private application code --------------------------------------------------*/

@@ -53,4 +53,5 @@ ctrlboard-h7_imu/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\User\Algorithm\mahony\mahony_filter.h \
   ..\User\Devices\BMI088\BMI088Middleware.h ..\User\Bsp\can_bsp.h \
-  ..\User\Bsp\bsp_uart.h ..\User\Bsp\bsp_time.h
+  ..\User\Bsp\bsp_uart.h ..\User\Bsp\bsp_time.h \
+  ..\User\Devices\DM_Motor\dm4310_drv.h

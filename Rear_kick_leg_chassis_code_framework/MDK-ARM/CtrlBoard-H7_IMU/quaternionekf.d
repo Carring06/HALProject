@@ -1,11 +1,6 @@
-ctrlboard-h7_imu\quaternionekf.o: ..\User\Algorithm\EKF\QuaternionEKF.c
-ctrlboard-h7_imu\quaternionekf.o: ..\User\Algorithm\EKF\QuaternionEKF.h
-ctrlboard-h7_imu\quaternionekf.o: ../User/Algorithm/kalman/kalman_filter.h
-ctrlboard-h7_imu\quaternionekf.o: ../Drivers/CMSIS/DSP/Include/arm_math.h
-ctrlboard-h7_imu\quaternionekf.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
-ctrlboard-h7_imu\quaternionekf.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
-ctrlboard-h7_imu\quaternionekf.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
-ctrlboard-h7_imu\quaternionekf.o: D:\Keil\ARM\ARMCC\Bin\..\include\string.h
-ctrlboard-h7_imu\quaternionekf.o: D:\Keil\ARM\ARMCC\Bin\..\include\math.h
-ctrlboard-h7_imu\quaternionekf.o: D:\Keil\ARM\ARMCC\Bin\..\include\float.h
-ctrlboard-h7_imu\quaternionekf.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+ctrlboard-h7_imu/quaternionekf.o: ..\User\Algorithm\EKF\QuaternionEKF.c \
+  ..\User\Algorithm\EKF\QuaternionEKF.h \
+  ..\User\Algorithm\kalman\kalman_filter.h \
+  ..\Drivers\CMSIS\DSP\Include\arm_math.h \
+  ..\Drivers\CMSIS\Include\cmsis_compiler.h \
+  ..\Drivers\CMSIS\Include\cmsis_armclang.h

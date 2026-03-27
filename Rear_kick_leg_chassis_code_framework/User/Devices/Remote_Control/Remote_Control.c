@@ -42,14 +42,21 @@ void SBUS_TO_RC(volatile const uint8_t *sbus_buf, Remote_Info_Typedef  *remote_c
 {
     if (sbus_buf == NULL || remote_ctrl == NULL) return;
 
-    remote_ctrl->rc.ch[0] = (  sbus_buf[0]       | (sbus_buf[1] << 8 ) ) & 0x07ff;                        
-    remote_ctrl->rc.ch[1] = ( (sbus_buf[1] >> 3) | (sbus_buf[2] << 5 ) ) & 0x07ff;                        
-    remote_ctrl->rc.ch[2] = ( (sbus_buf[2] >> 6) | (sbus_buf[3] << 2 ) | (sbus_buf[4] << 10) ) & 0x07ff;  
-    remote_ctrl->rc.ch[3] = ( (sbus_buf[4] >> 1) | (sbus_buf[5] << 7 ) ) & 0x07ff;                        
-    remote_ctrl->rc.ch[4] = (  sbus_buf[16] 	 | (sbus_buf[17] << 8) ) & 0x07ff;                 			    
+    remote_ctrl->rc.ch[0] = (sbus_buf[16] | (sbus_buf[17] << 8)) & 0x07ff;                              /*左侧滑轮*/
+    remote_ctrl->rc.ch[1] = (  sbus_buf[0]       | (sbus_buf[1] << 8 ) ) & 0x07ff;                      /*通道0*/
+    remote_ctrl->rc.ch[2] = ((sbus_buf[1] >> 3) | (sbus_buf[2] << 5)) & 0x07ff;                         /*通道1*/
+    remote_ctrl->rc.ch[3] = ((sbus_buf[2] >> 6) | (sbus_buf[3] << 2) | (sbus_buf[4] << 10)) & 0x07ff;   /*通道2*/
+    remote_ctrl->rc.ch[4] = ((sbus_buf[4] >> 1) | (sbus_buf[5] << 7)) & 0x07ff;                         /*通道3*/
 
-    remote_ctrl->rc.s[0] = ((sbus_buf[5] >> 4) & 0x000C) >> 2;
-    remote_ctrl->rc.s[1] = ((sbus_buf[5] >> 4) & 0x0003);             			
+    /*当遥控器要兼容除了机械臂其他电机时打开注释*/
+    // remote_ctrl->rc.ch[0] = (sbus_buf[0] | (sbus_buf[1] << 8)) & 0x07ff;                              /*通道0*/
+    // remote_ctrl->rc.ch[1] = ((sbus_buf[1] >> 3) | (sbus_buf[2] << 5)) & 0x07ff;                       /*通道1*/
+    // remote_ctrl->rc.ch[2] = ((sbus_buf[2] >> 6) | (sbus_buf[3] << 2) | (sbus_buf[4] << 10)) & 0x07ff; /*通道2*/
+    // remote_ctrl->rc.ch[3] = ((sbus_buf[4] >> 1) | (sbus_buf[5] << 7)) & 0x07ff;                       /*通道3*/
+    // remote_ctrl->rc.ch[4] = (sbus_buf[16] | (sbus_buf[17] << 8)) & 0x07ff;                            /*左侧滑轮*/
+
+    remote_ctrl->rc.s[0] = ((sbus_buf[5] >> 4) & 0x000C) >> 2;                                          /*按键左*/
+    remote_ctrl->rc.s[1] = ((sbus_buf[5] >> 4) & 0x0003);                                               /*按键右*/
 
     remote_ctrl->mouse.x = sbus_buf[6]  | (sbus_buf[7] << 8);               
     remote_ctrl->mouse.y = sbus_buf[8]  | (sbus_buf[9] << 8);               

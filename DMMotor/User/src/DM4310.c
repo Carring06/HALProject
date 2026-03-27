@@ -1,8 +1,8 @@
 #include "DM4310.h"
 
 
-#define motor_id 0x01
-#define mode_id 0x00                   // MIT模式的ID = 0x000 + CAN_ID
+#define motor_id 0x04
+#define mode_id 0x100                   // MIT模式的ID = 0x000 + CAN_ID
 
 void Enable_DM4310(void)
 {

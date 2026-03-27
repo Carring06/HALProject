@@ -1,15 +1,13 @@
-ctrlboard-h7_imu\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/timers.c
-ctrlboard-h7_imu\timers.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
-ctrlboard-h7_imu\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-ctrlboard-h7_imu\timers.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
-ctrlboard-h7_imu\timers.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
-ctrlboard-h7_imu\timers.o: ../Core/Inc/FreeRTOSConfig.h
-ctrlboard-h7_imu\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
-ctrlboard-h7_imu\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
-ctrlboard-h7_imu\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
-ctrlboard-h7_imu\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
-ctrlboard-h7_imu\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
-ctrlboard-h7_imu\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
-ctrlboard-h7_imu\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-ctrlboard-h7_imu\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
-ctrlboard-h7_imu\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+ctrlboard-h7_imu/timers.o: \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\timers.c \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
+  ..\Core\Inc\FreeRTOSConfig.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\deprecated_definitions.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\mpu_wrappers.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\task.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\timers.h
