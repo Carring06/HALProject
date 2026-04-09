@@ -105,9 +105,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         Complementary_Filter();
         Act_speedM1 = Encoder_GetM1() / 44.0 / 0.05 / 9.27666;  // 轮速计测量
         Act_speedM2 = -Encoder_GetM2() / 44.0 / 0.05 / 9.27666; // 轮速计测量
-        // Car_SpeedM1Driver();
+//         Car_SpeedM1Driver();
 
-        // Car_SpeedM2Driver();
+//        Car_SpeedM2Driver();
         // 1ms计算一次太快了，慢一点好吧
          Car_UprightM1Driver();
 
@@ -190,7 +190,7 @@ int main(void)
     */
 
     ///////////////////////////做一些安全保护措施////////////////////////////////////////////
-     Motor_Protection();
+//     Motor_Protection();
     // 改一下电机PWM配置
     //写个模块text模块
     //不烧录并复位是为了防止程序一下载电机就转造成破坏

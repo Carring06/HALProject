@@ -56,7 +56,7 @@ void ManipulatorTask(void)
             joint_pos[3] += ((float)remote_ctrl.rc.ch[3] / 660) * (-0.008f);
             joint_pos[4] += ((float)remote_ctrl.rc.ch[4] / 660) * (-0.008f);
 
-            /*当遥控器要兼容除了机械臂的其他电机时打开注释*/
+            /*当遥控器要兼容除了机械臂的其他电机时打开注释，互换程序*/
             // joint_pos[0] += ((float)remote_ctrl.rc.ch[4] / 660) * (-0.008f);
             // joint_pos[1] += ((float)remote_ctrl.rc.ch[0] / 660) * (-0.008f);
             // joint_pos[2] += ((float)remote_ctrl.rc.ch[1] / 660) * (-0.008f);
