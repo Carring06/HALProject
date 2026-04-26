@@ -1,6 +1,7 @@
 ctrlboard-h7_imu/mahony_filter.o: \
   ..\User\Algorithm\mahony\mahony_filter.c \
   ..\User\Algorithm\mahony\mahony_filter.h \
+<<<<<<< HEAD
   D:\Keil\ARM\ARMCLANG\include\math.h \
   D:\Keil\ARM\ARMCLANG\include\stdlib.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h7xx.h \
@@ -13,13 +14,21 @@ ctrlboard-h7_imu/mahony_filter.o: \
   D:\Keil\ARM\ARMCLANG\include\arm_compat.h \
   D:\Keil\ARM\ARMCLANG\include\arm_acle.h \
   D:\DeskTop\HALProject\Series_Legged_Robot-main_have_robotarm\Series_Legged_Robot-main\Drivers\CMSIS\Include\mpu_armv7.h \
+=======
+  ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h7xx.h \
+  ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h723xx.h \
+  ..\Drivers\CMSIS\Include\core_cm7.h \
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
   ..\Core\Inc\stm32h7xx_hal_conf.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_def.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
+<<<<<<< HEAD
   D:\Keil\ARM\ARMCLANG\include\stddef.h \
+=======
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio_ex.h \
@@ -43,6 +52,10 @@ ctrlboard-h7_imu/mahony_filter.o: \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h \
   ..\Drivers\CMSIS\DSP\Include\arm_math.h \
+<<<<<<< HEAD
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   D:\Keil\ARM\ARMCLANG\include\string.h \
   D:\Keil\ARM\ARMCLANG\include\float.h
+=======
+  ..\Drivers\CMSIS\Include\cmsis_compiler.h
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f

@@ -1,6 +1,10 @@
 ctrlboard-h7_imu/bmi088driver.o: ..\User\Devices\BMI088\BMI088driver.c \
+<<<<<<< HEAD
   ..\User\Devices\BMI088\BMI088driver.h \
   D:\Keil\ARM\ARMCLANG\include\stdint.h ..\Core\Inc\main.h \
+=======
+  ..\User\Devices\BMI088\BMI088driver.h ..\Core\Inc\main.h \
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
   ..\Core\Inc\stm32h7xx_hal_conf.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h \
@@ -8,6 +12,7 @@ ctrlboard-h7_imu/bmi088driver.o: ..\User\Devices\BMI088\BMI088driver.c \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h7xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h723xx.h \
   ..\Drivers\CMSIS\Include\core_cm7.h \
+<<<<<<< HEAD
   D:\DeskTop\HALProject\Series_Legged_Robot-main_have_robotarm\Series_Legged_Robot-main\Drivers\CMSIS\Include\cmsis_version.h \
   D:\DeskTop\HALProject\Series_Legged_Robot-main_have_robotarm\Series_Legged_Robot-main\Drivers\CMSIS\Include\cmsis_compiler.h \
   D:\DeskTop\HALProject\Series_Legged_Robot-main_have_robotarm\Series_Legged_Robot-main\Drivers\CMSIS\Include\cmsis_armclang.h \
@@ -18,6 +23,10 @@ ctrlboard-h7_imu/bmi088driver.o: ..\User\Devices\BMI088\BMI088driver.c \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
   D:\Keil\ARM\ARMCLANG\include\stddef.h \
   D:\Keil\ARM\ARMCLANG\include\math.h \
+=======
+  ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
+  ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio_ex.h \

@@ -6,6 +6,7 @@ ctrlboard-h7_imu/can_bsp.o: ..\User\Bsp\can_bsp.c ..\User\Bsp\can_bsp.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h7xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h723xx.h \
   ..\Drivers\CMSIS\Include\core_cm7.h \
+<<<<<<< HEAD
   D:\Keil\ARM\ARMCLANG\include\stdint.h \
   D:\DeskTop\HALProject\Series_Legged_Robot-main_have_robotarm\Series_Legged_Robot-main\Drivers\CMSIS\Include\cmsis_version.h \
   D:\DeskTop\HALProject\Series_Legged_Robot-main_have_robotarm\Series_Legged_Robot-main\Drivers\CMSIS\Include\cmsis_compiler.h \
@@ -17,6 +18,10 @@ ctrlboard-h7_imu/can_bsp.o: ..\User\Bsp\can_bsp.c ..\User\Bsp\can_bsp.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
   D:\Keil\ARM\ARMCLANG\include\stddef.h \
   D:\Keil\ARM\ARMCLANG\include\math.h \
+=======
+  ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
+  ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio_ex.h \
@@ -40,15 +45,24 @@ ctrlboard-h7_imu/can_bsp.o: ..\User\Bsp\can_bsp.c ..\User\Bsp\can_bsp.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h \
   ..\User\Bsp\bsp_dwt.h ..\Core\Inc\fdcan.h \
+<<<<<<< HEAD
   ..\User\Devices\DM_Motor\dm4310_drv.h \
   D:\Keil\ARM\ARMCLANG\include\string.h ..\User\APP\chassisR_task.h \
   ..\User\Devices\DJI_Motor\DJI_Motor.h \
   D:\Keil\ARM\ARMCLANG\include\stdbool.h ..\User\Algorithm\PID\pid.h \
+=======
+  ..\User\Devices\DM_Motor\dm4310_drv.h ..\User\APP\chassisR_task.h \
+  ..\User\Devices\DJI_Motor\DJI_Motor.h ..\User\Algorithm\PID\pid.h \
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f
   ..\User\Algorithm\VMC\VMC_calc.h ..\User\APP\INS_task.h \
   ..\User\Devices\BMI088\BMI088driver.h \
   ..\User\Algorithm\EKF\QuaternionEKF.h \
   ..\User\Algorithm\kalman\kalman_filter.h \
   ..\Drivers\CMSIS\DSP\Include\arm_math.h \
+<<<<<<< HEAD
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   D:\Keil\ARM\ARMCLANG\include\float.h \
   D:\Keil\ARM\ARMCLANG\include\stdlib.h
+=======
+  ..\Drivers\CMSIS\Include\cmsis_compiler.h
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f

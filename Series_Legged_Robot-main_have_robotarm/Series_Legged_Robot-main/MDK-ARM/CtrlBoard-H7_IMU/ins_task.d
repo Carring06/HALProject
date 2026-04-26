@@ -1,13 +1,19 @@
 ctrlboard-h7_imu/ins_task.o: ..\User\APP\INS_task.c \
+<<<<<<< HEAD
   ..\User\APP\ins_task.h D:\Keil\ARM\ARMCLANG\include\stdint.h \
   ..\User\Devices\BMI088\BMI088driver.h ..\Core\Inc\main.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
+=======
+  ..\User\APP\ins_task.h ..\User\Devices\BMI088\BMI088driver.h \
+  ..\Core\Inc\main.h ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f
   ..\Core\Inc\stm32h7xx_hal_conf.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_def.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h7xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h723xx.h \
   ..\Drivers\CMSIS\Include\core_cm7.h \
+<<<<<<< HEAD
   D:\DeskTop\HALProject\Series_Legged_Robot-main_have_robotarm\Series_Legged_Robot-main\Drivers\CMSIS\Include\cmsis_version.h \
   D:\DeskTop\HALProject\Series_Legged_Robot-main_have_robotarm\Series_Legged_Robot-main\Drivers\CMSIS\Include\cmsis_compiler.h \
   D:\DeskTop\HALProject\Series_Legged_Robot-main_have_robotarm\Series_Legged_Robot-main\Drivers\CMSIS\Include\cmsis_armclang.h \
@@ -18,6 +24,10 @@ ctrlboard-h7_imu/ins_task.o: ..\User\APP\INS_task.c \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
   D:\Keil\ARM\ARMCLANG\include\stddef.h \
   D:\Keil\ARM\ARMCLANG\include\math.h \
+=======
+  ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
+  ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio_ex.h \
@@ -44,10 +54,14 @@ ctrlboard-h7_imu/ins_task.o: ..\User\APP\INS_task.c \
   ..\User\Algorithm\kalman\kalman_filter.h \
   ..\Drivers\CMSIS\DSP\Include\arm_math.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
+<<<<<<< HEAD
   D:\Keil\ARM\ARMCLANG\include\string.h \
   D:\Keil\ARM\ARMCLANG\include\float.h \
   D:\Keil\ARM\ARMCLANG\include\stdlib.h ..\User\Controller\controller.h \
   ..\User\Lib\user_lib.h \
+=======
+  ..\User\Controller\controller.h ..\User\Lib\user_lib.h \
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
   ..\Core\Inc\FreeRTOSConfig.h \

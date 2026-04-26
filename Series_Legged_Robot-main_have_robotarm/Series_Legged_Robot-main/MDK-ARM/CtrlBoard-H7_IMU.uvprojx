@@ -10,8 +10,13 @@
       <TargetName>CtrlBoard-H7_IMU</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+<<<<<<< HEAD
       <pArmCC>6210000::V6.21::ARMCLANG</pArmCC>
       <pCCUsed>6210000::V6.21::ARMCLANG</pCCUsed>
+=======
+      <pArmCC>6240000::V6.24::ARMCLANG</pArmCC>
+      <pCCUsed>6240000::V6.24::ARMCLANG</pCCUsed>
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f
       <uAC6>9</uAC6>
       <TargetOption>
         <TargetCommonOption>

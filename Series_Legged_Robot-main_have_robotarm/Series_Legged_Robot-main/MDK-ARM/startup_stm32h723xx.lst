@@ -1262,9 +1262,15 @@ interwork --depend=ctrlboard-h7_imu\startup_stm32h723xx.d -octrlboard-h7_imu\st
 artup_stm32h723xx.o -I../Core/Inc -I../Drivers/CMSIS/Include -I.\RTE\_CtrlBoard
 -H7_IMU -ID:\Keil\ARM\PACK\ARM\CMSIS\6.3.0\CMSIS\Core\Include -ID:\Keil\ARM\PAC
 K\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include --predefin
+<<<<<<< HEAD
 e="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 539" --predefine="_RT
 E_ SETA 1" --predefine="STM32H723xx SETA 1" --predefine="_RTE_ SETA 1" --list=s
 tartup_stm32h723xx.lst startup_stm32h723xx.s
+=======
+e="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 543" --predefine="STM
+32H723xx SETA 1" --predefine="_RTE_ SETA 1" --list=startup_stm32h723xx.lst star
+tup_stm32h723xx.s
+>>>>>>> 6b1d1988f0dba7b074d523d3cd669b0dd019842f
 
 
 
