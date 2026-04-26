@@ -48,8 +48,8 @@ DM_Motor_Info_Typedef Arm_DM_Motor[5] = {
 		.Mode = Pos_mode,
 		.Motor_Type = DM_J4310,
 		.ID_Set = {
-			.TxIdentifier = Manipulator_J4310_Motor_Arm4_TxID,
-			.RxIdentifier = Manipulator_J4310_Motor_Arm4_RxID,
+			.TxIdentifier = Manipulator_J4310_Motor_Base_Rotate_TxID,
+			.RxIdentifier = Manipulator_J4310_Motor_Base_Rotate_RxID,
 		}
 	},
 	

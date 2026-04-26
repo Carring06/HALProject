@@ -9,12 +9,12 @@ void ManipulatorTask(void)
 {
     // 初始化关节目标位置，换句话说，也就是起始位置（仅初始化变量，无使能操作）
     joint_pos[0] = 0.0f;
-    joint_pos[1] = -0.1f;
+    joint_pos[1] = -2.0f;
     joint_pos[2] = 0.0f;
-    joint_pos[3] = 0.0f;
+    joint_pos[3] = -3.14;
     joint_pos[4] = 0.0f;
     // 初始化关节速度（仅初始化变量，无使能操作）
-    joint_vel[0] = 3.0f;
+    joint_vel[0] = 5.0f;
     joint_vel[1] = 5.0f;
     joint_vel[2] = 5.0f;
     joint_vel[3] = 3.0f;
@@ -25,7 +25,7 @@ void ManipulatorTask(void)
         // 仅当遥控器S1=1（按键按下）时，才使能所有机械臂电机
         if (remote_ctrl.rc.s[0] == 1)
         {
-            Enable_Motor_Mode(&hfdcan2, Manipulator_J4310_Motor_Arm4_TxID, POS_MODE, 1);
+            Enable_Motor_Mode(&hfdcan2, Manipulator_J4310_Motor_Base_Rotate_TxID, POS_MODE, 1);
 
             Enable_Motor_Mode(&hfdcan2, Manipulator_J4310_Motor_Base_TxID, POS_MODE, 1);
             Enable_Motor_Mode(&hfdcan2, Manipulator_J4340_Motor_Jonit_TxID, POS_MODE, 1);
@@ -36,7 +36,7 @@ void ManipulatorTask(void)
         // S1=2时，失能所有机械臂电机
         if (remote_ctrl.rc.s[0] == 2)
         {
-            Disable_Motor_Mode(&hfdcan2, Manipulator_J4310_Motor_Arm4_TxID, POS_MODE, 1);
+            Disable_Motor_Mode(&hfdcan2, Manipulator_J4310_Motor_Base_Rotate_TxID, POS_MODE, 1);
 
             Disable_Motor_Mode(&hfdcan2, Manipulator_J4310_Motor_Base_TxID, POS_MODE, 1);
             Disable_Motor_Mode(&hfdcan2, Manipulator_J4340_Motor_Jonit_TxID, POS_MODE, 1);
@@ -64,8 +64,7 @@ void ManipulatorTask(void)
             // joint_pos[4] += ((float)remote_ctrl.rc.ch[3] / 660) * (-0.008f);
 
             // 角度限位
-            VAL_LIMIT(joint_pos[0], 0.0f, 0.0f);
-
+            VAL_LIMIT(joint_pos[0], -2.0f, 2.0f);
             VAL_LIMIT(joint_pos[1], -2.0f, -0.1f);
             VAL_LIMIT(joint_pos[2], 0.0f, 2.5f);
             VAL_LIMIT(joint_pos[3], -3.14f, 3.14f);

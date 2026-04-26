@@ -27,13 +27,13 @@
 #define Chassis_J4310_Motor_R_TxID 0x02 /* 底盘J4310右电机发送ID */
 
 /*机械臂电机接收ID定义*/
-#define Manipulator_J4310_Motor_Arm4_RxID    0x00 /* 机械臂...电机接收ID */
+#define Manipulator_J4310_Motor_Base_Rotate_RxID    0x11 /* 机械臂...电机接收ID */
 #define Manipulator_J4310_Motor_Base_RxID    0x12 /* 机械臂底座J4310电机接收ID */
 #define Manipulator_J4340_Motor_Jonit_RxID   0x13 /* 机械臂关节J4340电机接收ID */
 #define Manipulator_J4310_Motor_Rotate_RxID  0x14 /* 机械臂夹物旋转J3410电机接收ID */
 #define Manipulator_J4310_Motor_Gripper_RxID 0x15 /* 机械臂夹物J3410电机接收ID */
 /*机械臂电机发送ID定义*/
-#define Manipulator_J4310_Motor_Arm4_TxID    0x00 /* 机械臂...电机发送ID */
+#define Manipulator_J4310_Motor_Base_Rotate_TxID    0x01 /* 机械臂...电机发送ID */
 #define Manipulator_J4310_Motor_Base_TxID    0x02 /* 机械臂底座J4310电机发送ID */
 #define Manipulator_J4340_Motor_Jonit_TxID   0x03 /* 机械臂关节J4340电机发送ID */
 #define Manipulator_J4310_Motor_Rotate_TxID  0x04 /* 机械臂夹物旋转J3410电机发送ID */
