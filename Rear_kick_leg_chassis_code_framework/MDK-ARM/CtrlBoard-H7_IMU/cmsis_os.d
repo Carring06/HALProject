@@ -1,7 +1,10 @@
 ctrlboard-h7_imu/cmsis_os.o: \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.c \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\string.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stddef.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdint.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \

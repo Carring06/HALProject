@@ -151,7 +151,8 @@ void INS_Task(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    INS_task();		
+//    INS_task();		
+		 osDelay(5);
   }
   /* USER CODE END INS_Task */
 }

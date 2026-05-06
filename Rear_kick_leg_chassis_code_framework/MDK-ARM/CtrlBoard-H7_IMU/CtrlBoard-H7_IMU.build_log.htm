@@ -3,31 +3,53 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.43.1.0
-Copyright (C) 2025 ARM Ltd and ARM Germany GmbH. All rights reserved.
+IDE-Version: ¦ÌVision V5.39.0.0
+Copyright (C) 2023 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: A Car, 9, LIC=HN0AE-5U1H9-UHG8H-WGN20-BXKR2-J2ULA
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.43.0.0
+Toolchain:       MDK-ARM Plus  Version: 5.39.0.0
 Toolchain Path:  D:\Keil\ARM\ARMCLANG\Bin
-C Compiler:      ArmClang.exe V6.24
-Assembler:       Armasm.exe V6.24
-Linker/Locator:  ArmLink.exe V6.24
-Library Manager: ArmAr.exe V6.24
-Hex Converter:   FromElf.exe V6.24
-CPU DLL:         SARMCM3.DLL V5.43.0.0
+C Compiler:      ArmClang.exe V6.21
+Assembler:       Armasm.exe V6.21
+Linker/Locator:  ArmLink.exe V6.21
+Library Manager: ArmAr.exe V6.21
+Hex Converter:   FromElf.exe V6.21
+CPU DLL:         SARMCM3.DLL V5.39.0.0
 Dialog DLL:      DCM.DLL V1.17.5.0
-Target DLL:      CMSIS_AGDI.dll V1.33.24.0
-Dialog DLL:      TCM.DLL V1.56.6.0
+Target DLL:      CMSIS_AGDI.dll V1.33.16.0
+Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-d:\DeskTop\HALProject\Rear_kick_leg_chassis_code_framework\MDK-ARM\CtrlBoard-H7_IMU.uvprojx
-Project File Date:  03/25/2026
+D:\DeskTop\HALProject\Rear_kick_leg_chassis_code_framework\MDK-ARM\CtrlBoard-H7_IMU.uvprojx
+Project File Date:  05/04/2026
 
 <h2>Output:</h2>
-*** Using Compiler 'V6.24', folder: 'D:\Keil\ARM\ARMCLANG\Bin'
+*** Using Compiler 'V6.21', folder: 'D:\Keil\ARM\ARMCLANG\Bin'
 Build target 'CtrlBoard-H7_IMU'
-"CtrlBoard-H7_IMU\CtrlBoard-H7_IMU.axf" - 0 Error(s), 0 Warning(s).
+compiling bsp_PWM.c...
+compiling BMI088driver.c...
+../Core/Src/freertos.c(28): warning: In file included from...
+../User/APP\AGV_chassis_task.h(13): warning: In file included from...
+../User/Lib\user_lib.h(118): warning: 'packed' attribute ignored [-Wignored-attributes]
+  118 | typedef __packed struct
+      |         ^
+../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal_def.h(115): note: expanded from macro '__packed'
+  115 |     #define __packed  __attribute__((packed))
+      |                                      ^
+../Core/Src/freertos.c(28): warning: In file included from...
+../User/APP\AGV_chassis_task.h(72): warning: 'PI' macro redefined [-Wmacro-redefined]
+   72 | #define PI               3.1415f
+      |         ^
+../Drivers/CMSIS/DSP/Include\arm_math.h(349): note: previous definition is here
+  349 |   #define PI               3.14159265358979f
+      |           ^
+2 warnings generated.
+compiling freertos.c...
+linking...
+Program Size: Code=50620 RO-data=1132 RW-data=2980 ZI-data=44164  
+FromELF: creating hex file...
+"CtrlBoard-H7_IMU\CtrlBoard-H7_IMU.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -50,7 +72,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE@6.2.0
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

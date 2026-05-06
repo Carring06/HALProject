@@ -39,6 +39,17 @@
 #define Manipulator_J4310_Motor_Rotate_TxID  0x04 /* 机械臂夹物旋转J3410电机发送ID */
 #define Manipulator_J4310_Motor_Gripper_TxID 0x05 /* 机械臂夹物旋转J3410电机发送ID */
 
+/*舵轮转向电机接收ID定义*/
+#define AGV_G6220_Motor1_RxID                0x11
+#define AGV_G6220_Motor2_RxID                0x12
+#define AGV_G6220_Motor3_RxID                0x13
+#define AGV_G6220_Motor4_RxID                0x14
+/*舵轮转向电机发送ID定义*/
+#define AGV_G6220_Motor1_TxID                0x01
+#define AGV_G6220_Motor2_TxID                0x02
+#define AGV_G6220_Motor3_TxID                0x03
+#define AGV_G6220_Motor4_TxID                0x04
+
 #define MIT_MODE                             0x000 /* MIT模式 */
 #define POS_MODE                             0x100 /* 位置模式 */
 #define SPEED_MODE                           0x200 /* 速度模式 */
@@ -82,6 +93,7 @@ typedef enum {
     DM_J4340,
     DM_J8009,
     // DM_J8006,
+    DM_G6220,
     DM_MOTOR_TYPE_NUM,
 } DM_Motor_Type_e;
 
@@ -154,7 +166,7 @@ uint16_t Enable_Motor_Mode(hcan_t *hcan, uint16_t motor_id, uint16_t mode_id, ui
 uint16_t Disable_Motor_Mode(hcan_t *hcan, uint16_t motor_id, uint16_t mode_id, uint8_t delay_time);
 void Save_Motor_Zero(hcan_t *hcan, uint16_t motor_id, uint16_t mode_id, uint8_t delay_time);
 void DM_Motor_Info_Update(DM_Motor_Info_Typedef *motor, uint8_t *rx_data, uint32_t data_len);
-void DM_Motor_Ctrl(hcan_t *hcan, volatile DM_Motor_Info_Typedef *motor, float pos, float vel, float kp, float kd, float torq, uint8_t delay_time);
+void DM_Motor_Ctrl(hcan_t *hcan, DM_Motor_Info_Typedef *motor, float pos, float vel, float kp, float kd, float torq, uint8_t delay_time);
 void mit_ctrl2(hcan_t *hcan, uint16_t motor_id, float pos, float vel, float kp, float kd, float torq, uint8_t delay_time);
 float Hex_To_Float(uint32_t *Byte, int num);
 uint32_t FloatTohex(float HEX);

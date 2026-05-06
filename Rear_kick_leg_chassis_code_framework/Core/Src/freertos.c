@@ -25,10 +25,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "INS_task.h"
+#include "AGV_chassis_task.h"
 #include "DM_Motor.h"
-#include "fdcan.h"
+#include "INS_task.h"
 #include "Manipulator_Task.h"
+#include "fdcan.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -106,7 +107,7 @@ void MX_FREERTOS_Init(void) {
   INS_TASKHandle = osThreadCreate(osThread(INS_TASK), NULL);
 
   /* definition and creation of CHASSIS_TASK */
-  osThreadDef(CHASSIS_TASK, Chassis_Task, osPriorityAboveNormal, 0, 1024);
+  osThreadDef(CHASSIS_TASK, Chassis_Task, osPriorityAboveNormal, 0, 2048);
   CHASSIS_TASKHandle = osThreadCreate(osThread(CHASSIS_TASK), NULL);
 
   /* definition and creation of REMOTE_TASK */
@@ -157,7 +158,8 @@ void INS_Task(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    INS_task();		
+      // INS_task();
+       osDelay(10);
   }
   /* USER CODE END INS_Task */
 }
@@ -175,7 +177,42 @@ void Chassis_Task(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+		
+		
+		
+			AGV_chassis_task();
+
+        uint8_t data1[8] = {0}; // FDCAN1: 电机1和2
+        uint8_t data2[8] = {0}; // FDCAN2: 电机0和3
+
+        data1[2] = (uint8_t)((10 >> 8) & 0xFF);
+        data1[3] = (uint8_t)(10 & 0xFF);
+        data1[4] = (uint8_t)((10 >> 8) & 0xFF);
+        data1[5] = (uint8_t)(10 & 0xFF);
+        canx_send_data(&hfdcan1, 0x200, data1, 8);
+
+        data2[0] = (uint8_t)((10 >> 8) & 0xFF);
+        data2[1] = (uint8_t)(10 & 0xFF);
+        data2[6] = (uint8_t)((10 >> 8) & 0xFF);
+        data2[7] = (uint8_t)(10 & 0xFF);
+        canx_send_data(&hfdcan2, 0x200, data2, 8);
+
+/*DM6220*/
+//		  if (remote_ctrl.rc.s[0] == 3)
+//      {
+//				Enable_Motor_Mode(&hfdcan1, 0x01, POS_MODE, 1);
+//				Enable_Motor_Mode(&hfdcan2, 0x02, POS_MODE, 1);
+//				Enable_Motor_Mode(&hfdcan1, 0x03, POS_MODE, 1);
+//				Enable_Motor_Mode(&hfdcan2, 0x04, POS_MODE, 1);
+//			}
+//			if (remote_ctrl.rc.s[0] == 2)
+//      {
+//					Disable_Motor_Mode(&hfdcan2, 0x01, MIT_MODE, 1);
+//				  Disable_Motor_Mode(&hfdcan1, 0x02, MIT_MODE, 1);
+//				  Disable_Motor_Mode(&hfdcan1, 0x03, MIT_MODE, 1);
+//				  Disable_Motor_Mode(&hfdcan2, 0x04, MIT_MODE, 1);
+//			}
+      osDelay(1);
   }
   /* USER CODE END Chassis_Task */
 }

@@ -15,6 +15,9 @@
 #include "bsp_can.h"
 #include "fdcan.h"
 #include "string.h"
+#include "DJI_Motor.h"
+#include "DM_Motor.h"
+#include "DM_Motor.h"
 
 /* Defines ----------------------------------------------------------------- */
 
@@ -27,6 +30,11 @@ uint8_t g_Can2RxData[64];
 
 FDCAN_RxHeaderTypeDef RxHeader3;
 uint8_t g_Can3RxData[64];
+
+/* External variables -------------------------------------------------------- */
+extern DJI_Motor_Info_Typedef chassis_motor_info[4];
+extern DM_Motor_Info_Typedef chassis_dm_info[4];
+extern DM_Motor_Ctrl_Typedef chassis_dm_ctrl[4];
 
 /* Static Fun -------------------------------------------------------------- */
 
@@ -74,24 +82,24 @@ void FDCAN1_Config(void)
 }
 
 /**
- * @brief  FDCAN2过滤器和中断配置
- * @param  无
- * @return 无
- * @note   无
- */
+  * @brief  FDCAN2过滤器和中断配置（用于右侧DM6220 + 右侧3508）
+  * @param  无
+  * @return 无
+  * @note   接收DM6220(0x12,0x14) + 3508(0x202,0x204)反馈
+  */
 void FDCAN2_Config(void)
 {
 	FDCAN_FilterTypeDef sFilterConfig;
-	/* 配置Rx过滤器 */
-	sFilterConfig.IdType =  FDCAN_STANDARD_ID;
+	/* 配置Rx过滤器：接收所有标准ID，在回调中筛选 */
+	sFilterConfig.IdType = FDCAN_STANDARD_ID;
 	sFilterConfig.FilterIndex = 1;
 	sFilterConfig.FilterType = FDCAN_FILTER_MASK;
 	sFilterConfig.FilterConfig = FDCAN_FILTER_TO_RXFIFO1;
-	sFilterConfig.FilterID1 = 0x00000000;
+	sFilterConfig.FilterID1 = 0x00000000; // 接收所有标准ID
 	sFilterConfig.FilterID2 = 0x00000000;
 	if (HAL_FDCAN_ConfigFilter(&hfdcan2, &sFilterConfig) != HAL_OK)
 	{
-		Error_Handler();
+	Error_Handler();
 	}
 
 	/* 全局过滤器配置 */
@@ -110,7 +118,7 @@ void FDCAN2_Config(void)
 	/* 启动FDCAN模块 */
 	if (HAL_FDCAN_Start(&hfdcan2) != HAL_OK)
 	{
-		Error_Handler();
+	  Error_Handler();
 	}
 }
 
@@ -201,51 +209,61 @@ uint8_t canx_send_data(FDCAN_HandleTypeDef *hcan, uint16_t id, uint8_t *data, ui
 
 /* Interrupt functions ----------------------------------------------------- */
 /**
- * @brief  FDCAN RxFifo0回调函数
- * @param  hfdcan: FDCAN句柄
- * @param  RxFifo0ITs: RxFifo0中断标志
- * @return 无
- * @note   在FDCAN1和FDCAN3接收到新消息时调用
- */
+  * @brief  FDCAN RxFifo0回调函数（覆盖弱实现）
+  * @param  hfdcan: FDCAN句柄
+  * @param  RxFifo0ITs: RxFifo0中断标志
+  * @note   FDCAN1用于DM6220(0x12索引1,0x13索引2) + 3508(0x202索引1,0x203索引2)
+  */
 void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
-{ 
+{
   if((RxFifo0ITs & FDCAN_IT_RX_FIFO0_NEW_MESSAGE) != RESET)
   {
+    // 处理FDCAN1：DM6220(索引1,2) + 3508(索引1,2)
     if(hfdcan->Instance == FDCAN1)
     {
-		/* 从RX_FIFO0检索Rx消息 */
-		memset(g_Can1RxData, 0, sizeof(g_Can1RxData));	//清空接收缓冲区	
-		HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &RxHeader1, g_Can1RxData);
-			
-		switch(RxHeader1.Identifier)
-		{
-			// case 3 :DM_Motor_Info_Update(&chassis_move.joint_motor[2], g_Can2RxData,RxHeader2.DataLength);break;
-			// case 4 :DM_Motor_Info_Update(&chassis_move.joint_motor[3], g_Can2RxData,RxHeader2.DataLength);break;	  
-			default: break;
-		}			
-	}
-	else if(hfdcan->Instance == FDCAN3)
-	{
-		/* 从RX_FIFO0检索Rx消息 */
-		memset(g_Can3RxData, 0, sizeof(g_Can3RxData));	// 清空接收缓冲区	
-		HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &RxHeader3, g_Can3RxData);
-			
-		switch(RxHeader3.Identifier)
-		{
-			
-			default: break;
-		}
-	}
+      memset(g_Can1RxData, 0, sizeof(g_Can1RxData));
+      HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &RxHeader1, g_Can1RxData);
+
+      // DM6220转向电机反馈处理（RxID: 0x12索引1, 0x13索引2）
+      switch(RxHeader1.Identifier)
+      {
+        case 0x12: // 索引1：DM6220 ID 0x02
+        {
+          DM_Motor_Info_Update(&chassis_dm_info[1], g_Can1RxData, RxHeader1.DataLength);
+          break;
+        }
+        case 0x13: // 索引2：DM6220 ID 0x03
+        {
+          DM_Motor_Info_Update(&chassis_dm_info[2], g_Can1RxData, RxHeader1.DataLength);
+          break;
+        }
+        // 3508轮毂电机反馈处理（RxID: 0x202索引1, 0x203索引2）
+        case 0x202: // 索引1
+        {
+          DJI_Motor_Info_Update(&chassis_motor_info[1], g_Can1RxData, RxHeader1.DataLength);
+          break;
+        }
+        case 0x203: // 索引2
+        {
+          DJI_Motor_Info_Update(&chassis_motor_info[2], g_Can1RxData, RxHeader1.DataLength);
+          break;
+        }
+        // 机械臂DM电机反馈处理（如有需要可在此添加）
+        default: break;
+      }
+    }
   }
-}
+}   
+  
+
 
 /**
- * @brief  FDCAN RxFifo1回调函数
- * @param  hfdcan: FDCAN句柄
- * @param  RxFifo1ITs: RxFifo1中断标志
- * @return 无
- * @note   在FDCAN2接收到新消息时调用
- */
+  * @brief  FDCAN RxFifo1回调函数
+  * @param  hfdcan: FDCAN句柄
+  * @param  RxFifo1ITs: RxFifo1中断标志
+  * @return 无
+  * @note   在FDCAN2接收到新消息时调用（DM6220 0x11,0x14 + 3508 0x201,0x204）
+  */
 void HAL_FDCAN_RxFifo1Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo1ITs)
 {
   if((RxFifo1ITs & FDCAN_IT_RX_FIFO1_NEW_MESSAGE) != RESET)
@@ -255,12 +273,33 @@ void HAL_FDCAN_RxFifo1Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo1ITs)
 		/* 从RX_FIFO1检索Rx消息 */
 		memset(g_Can2RxData, 0, sizeof(g_Can2RxData));
 		HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO1, &RxHeader2, g_Can2RxData);
+
+		/* 处理DM6220转向电机反馈（RxID: 0x11索引0, 0x14索引3） */
 		switch(RxHeader2.Identifier)
 		{
-			// case 3 :DM_Motor_Info_Update(&chassis_move.joint_motor[2], g_Can2RxData,RxHeader2.DataLength);break;
-			// case 4 :DM_Motor_Info_Update(&chassis_move.joint_motor[3], g_Can2RxData,RxHeader2.DataLength);break;	         	
+			case 0x11: // 索引0：左前DM6220
+			{
+				DM_Motor_Info_Update(&chassis_dm_info[0], g_Can2RxData, RxHeader2.DataLength);
+				break;
+			}
+			case 0x14: // 索引3：右前DM6220
+			{
+				DM_Motor_Info_Update(&chassis_dm_info[3], g_Can2RxData, RxHeader2.DataLength);
+				break;
+			}
+			/* 处理3508轮毂电机反馈（RxID: 0x201索引0, 0x204索引3） */
+			case 0x201:
+			{
+				DJI_Motor_Info_Update(&chassis_motor_info[0], g_Can2RxData, RxHeader2.DataLength);
+				break;
+			}
+			case 0x204:
+			{
+				DJI_Motor_Info_Update(&chassis_motor_info[3], g_Can2RxData, RxHeader2.DataLength);
+				break;
+			}
 			default: break;
-		}	
+		}
     }
   }
 }

@@ -16,6 +16,7 @@
 #include "fdcan.h"
 #include "stdbool.h"
 #include "cmsis_os.h"
+#include "string.h"
 
 /* Defines ----------------------------------------------------------------- */
 
@@ -173,6 +174,8 @@ static float DJI_Motor_Encoder_To_Anglesum(DJI_Motor_Data_Typedef *Data,float To
   
   return Data->Angle;
 }
+
+
 
 /* Interrupt functions ----------------------------------------------------- */
 

@@ -91,6 +91,41 @@ DM_Motor_Info_Typedef Arm_DM_Motor[5] = {
 	},
 	
 };
+// 舵轮DM6220转向电机配置（全局数组，一次性初始化）
+DM_Motor_Info_Typedef AGV_Rotate_DM_Motor[4] = {
+    [0] = {
+        .Mode = Mit_mode,  // 改为MIT模式，软件双环PID
+        .Motor_Type = DM_G6220,
+        .ID_Set = {
+            .TxIdentifier = AGV_G6220_Motor1_TxID,
+            .RxIdentifier = AGV_G6220_Motor1_RxID,
+        }},
+
+	[1] = {
+        .Mode = Mit_mode,  // 改为MIT模式，软件双环PID
+        .Motor_Type = DM_G6220,
+        .ID_Set = {
+            .TxIdentifier = AGV_G6220_Motor2_TxID,
+            .RxIdentifier = AGV_G6220_Motor2_RxID,
+        }},
+
+	[2] = {
+        .Mode = Mit_mode,  // 改为MIT模式，软件双环PID
+        .Motor_Type = DM_G6220,
+        .ID_Set = {
+            .TxIdentifier = AGV_G6220_Motor3_TxID,
+            .RxIdentifier = AGV_G6220_Motor3_RxID,
+        }},
+
+	[3] = {
+        .Mode = Mit_mode,  // 改为MIT模式，软件双环PID
+        .Motor_Type = DM_G6220,
+        .ID_Set = {
+            .TxIdentifier = AGV_G6220_Motor4_TxID,
+            .RxIdentifier = AGV_G6220_Motor4_RxID,
+        }},
+
+};
 
 /* Static Fun -------------------------------------------------------------- */
 
@@ -273,7 +308,7 @@ uint16_t Disable_Motor_Mode(hcan_t* hcan, uint16_t motor_id, uint16_t mode_id, u
  * @return 无
  * @note   无
  */
-void DM_Motor_Ctrl(hcan_t *hcan, volatile DM_Motor_Info_Typedef *motor, float pos, float vel, float kp, float kd, float torq, uint8_t delay_time)
+void DM_Motor_Ctrl(hcan_t *hcan, DM_Motor_Info_Typedef *motor, float pos, float vel, float kp, float kd, float torq, uint8_t delay_time)
 {
     switch (motor->Mode)
     {

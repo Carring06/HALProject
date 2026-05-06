@@ -64,6 +64,7 @@
 "ctrlboard-h7_imu\port.o"
 "ctrlboard-h7_imu\ins_task.o"
 "ctrlboard-h7_imu\manipulator_task.o"
+"ctrlboard-h7_imu\agv_chassis_task.o"
 "ctrlboard-h7_imu\bsp_dwt.o"
 "ctrlboard-h7_imu\bsp_pwm.o"
 "ctrlboard-h7_imu\bsp_uart.o"

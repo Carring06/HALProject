@@ -1,5 +1,7 @@
 ctrlboard-h7_imu/user_lib.o: ..\User\Lib\user_lib.c \
-  ..\User\Lib\user_lib.h ..\Core\Inc\main.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdlib.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\string.h ..\User\Lib\user_lib.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdint.h ..\Core\Inc\main.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
   ..\Core\Inc\stm32h7xx_hal_conf.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h \
@@ -7,8 +9,16 @@ ctrlboard-h7_imu/user_lib.o: ..\User\Lib\user_lib.c \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h7xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h723xx.h \
   ..\Drivers\CMSIS\Include\core_cm7.h \
+  ..\Drivers\CMSIS\Include\cmsis_version.h \
+  ..\Drivers\CMSIS\Include\cmsis_compiler.h \
+  ..\Drivers\CMSIS\Include\cmsis_armclang.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_compat.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_acle.h \
+  ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stddef.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\math.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio_ex.h \

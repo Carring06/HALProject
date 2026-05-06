@@ -159,12 +159,12 @@ int main(void)
   while (1)
   {
 
-//    uint16_t CurPosition = RxData[2] | (RxData[1] << 8);
-//    uint16_t ActualPos = uint_to_float(CurPosition, 0, 360, 16);
-//    uint16_t Cur_Speed = RxData[3] << 4 | (RxData[4] & 0xF0) >> 4;
-//    float ActualSpeed = uint_to_float(Cur_Speed, -30, 30, 12);
-//    Set_DM4310_Position(Target_pos, ActualPos, ActualSpeed, &Pos_PID, &Speed_PID);
-//    HAL_Delay(10);
+    uint16_t CurPosition = RxData[2] | (RxData[1] << 8);
+    uint16_t ActualPos = uint_to_float(CurPosition, 0, 360, 16);
+    uint16_t Cur_Speed = RxData[3] << 4 | (RxData[4] & 0xF0) >> 4;
+    float ActualSpeed = uint_to_float(Cur_Speed, -30, 30, 12);
+    Set_DM4310_Position(Target_pos, ActualPos, ActualSpeed, &Pos_PID, &Speed_PID);
+    HAL_Delay(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

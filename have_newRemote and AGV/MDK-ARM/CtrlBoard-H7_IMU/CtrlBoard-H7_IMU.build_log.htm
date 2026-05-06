@@ -21,18 +21,27 @@ Target DLL:      CMSIS_AGDI.dll V1.33.16.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-D:\DeskTop\BUG1\BUG1\MDK-ARM\CtrlBoard-H7_IMU.uvprojx
+D:\DeskTop\HALProject\have_newRemote and AGV\MDK-ARM\CtrlBoard-H7_IMU.uvprojx
 Project File Date:  04/26/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.21', folder: 'D:\Keil\ARM\ARMCLANG\Bin'
 Build target 'CtrlBoard-H7_IMU'
 compiling bsp_PWM.c...
+../Core/Src/freertos.c(29): warning: In file included from...
+../User/APP\AGV_chassis_task.h(65): warning: 'PI' macro redefined [-Wmacro-redefined]
+   65 | #define PI  3.1415f 
+      |         ^
+../Drivers/CMSIS/DSP/Include\arm_math.h(349): note: previous definition is here
+  349 |   #define PI               3.14159265358979f
+      |           ^
+1 warning generated.
+compiling freertos.c...
 compiling BMI088driver.c...
 linking...
-Program Size: Code=53668 RO-data=1116 RW-data=2436 ZI-data=45108  
+Program Size: Code=49660 RO-data=1116 RW-data=2416 ZI-data=44704  
 FromELF: creating hex file...
-"CtrlBoard-H7_IMU\CtrlBoard-H7_IMU.axf" - 0 Error(s), 0 Warning(s).
+"CtrlBoard-H7_IMU\CtrlBoard-H7_IMU.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -55,7 +64,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE@6.2.0
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

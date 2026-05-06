@@ -10,7 +10,7 @@
 uint32_t chassis_count = 0;
 int16_t debug_Target;
 
-//开始标志位,初始化为Initing
+//开始标志位,初始化为Initing 
 SystemValue systemvalue = Initing;
 
 //底盘电机信息结构体
