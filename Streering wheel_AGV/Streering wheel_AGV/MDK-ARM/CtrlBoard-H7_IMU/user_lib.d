@@ -1,8 +1,7 @@
 ctrlboard-h7_imu/user_lib.o: ..\User\Lib\user_lib.c \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\string.h \
-  ..\User\Lib\user_lib.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Core\Inc\main.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdlib.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\string.h ..\User\Lib\user_lib.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdint.h ..\Core\Inc\main.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
   ..\Core\Inc\stm32h7xx_hal_conf.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h \
@@ -13,13 +12,13 @@ ctrlboard-h7_imu/user_lib.o: ..\User\Lib\user_lib.c \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_compat.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_acle.h \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\math.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stddef.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\math.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio_ex.h \

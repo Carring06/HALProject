@@ -1,6 +1,5 @@
 ctrlboard-h7_imu/ins_task.o: ..\User\APP\INS_task.c \
-  ..\User\APP\ins_task.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\User\APP\ins_task.h D:\Keil\ARM\ARMCLANG\bin\..\include\stdint.h \
   ..\User\Devices\BMI088\BMI088driver.h ..\Core\Inc\main.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
   ..\Core\Inc\stm32h7xx_hal_conf.h \
@@ -12,13 +11,13 @@ ctrlboard-h7_imu/ins_task.o: ..\User\APP\INS_task.c \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_compat.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_acle.h \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\math.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stddef.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\math.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio_ex.h \
@@ -47,9 +46,9 @@ ctrlboard-h7_imu/ins_task.o: ..\User\APP\INS_task.c \
   ..\User\Bsp\bsp_dwt.h ..\User\Algorithm\EKF\QuaternionEKF.h \
   ..\User\Algorithm\kalman\kalman_filter.h \
   ..\Drivers\CMSIS\DSP\Include\arm_math.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\string.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\float.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdlib.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\string.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\float.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdlib.h \
   ..\User\Controller\controller.h ..\User\Lib\user_lib.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \

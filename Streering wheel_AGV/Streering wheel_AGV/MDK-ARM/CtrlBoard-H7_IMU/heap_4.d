@@ -1,9 +1,9 @@
 ctrlboard-h7_imu/heap_4.o: \
   ..\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdlib.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdlib.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stddef.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdint.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \

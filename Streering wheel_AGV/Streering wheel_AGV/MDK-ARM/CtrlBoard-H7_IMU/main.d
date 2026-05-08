@@ -6,17 +6,17 @@ ctrlboard-h7_imu/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h7xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h723xx.h \
   ..\Drivers\CMSIS\Include\core_cm7.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdint.h \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_compat.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_acle.h \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\math.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stddef.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\math.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio_ex.h \
@@ -61,13 +61,13 @@ ctrlboard-h7_imu/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Core\Inc\tim.h ..\Core\Inc\usart.h ..\USB_DEVICE\App\usb_device.h \
   ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h \
   ..\USB_DEVICE\Target\usbd_conf.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\string.h ..\Core\Inc\gpio.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdio.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdlib.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\string.h ..\Core\Inc\gpio.h \
   ..\User\Devices\BMI088\BMI088driver.h \
   ..\User\Algorithm\kalman\kalman_filter.h \
   ..\Drivers\CMSIS\DSP\Include\arm_math.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\float.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\float.h \
   ..\User\Algorithm\mahony\mahony_filter.h \
   ..\User\Devices\BMI088\BMI088Middleware.h ..\User\Bsp\bsp_can.h \
   ..\User\Bsp\bsp_uart.h ..\User\Config\user_sys_config.h

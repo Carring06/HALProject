@@ -7,17 +7,17 @@ ctrlboard-h7_imu/agv_chassis_task.o: ..\User\APP\AGV_Chassis_Task.c \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h7xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h723xx.h \
   ..\Drivers\CMSIS\Include\core_cm7.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdint.h \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_compat.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_acle.h \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\math.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stddef.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\math.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio_ex.h \
@@ -44,9 +44,8 @@ ctrlboard-h7_imu/agv_chassis_task.o: ..\User\APP\AGV_Chassis_Task.c \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_ll_usb.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd_ex.h \
   ..\User\Bsp\bsp_dwt.h ..\User\Devices\DJI_Motor\DJI_Motor.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdbool.h \
-  ..\User\Bsp\bsp_can.h ..\User\Algorithm\PID\pid.h \
-  ..\User\Devices\DM_Motor\DM_Motor.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdbool.h ..\User\Bsp\bsp_can.h \
+  ..\User\Algorithm\PID\pid.h ..\User\Devices\DM_Motor\DM_Motor.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
@@ -62,6 +61,6 @@ ctrlboard-h7_imu/agv_chassis_task.o: ..\User\APP\AGV_Chassis_Task.c \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\event_groups.h \
   ..\User\Devices\Remote_Control\Remote_Control.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\string.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdio.h ..\Core\Inc\fdcan.h
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdlib.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\string.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdio.h ..\Core\Inc\fdcan.h

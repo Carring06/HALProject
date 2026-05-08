@@ -1,7 +1,7 @@
 ctrlboard-h7_imu/freertos.o: ..\Core\Src\freertos.c \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stddef.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdint.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \
@@ -20,12 +20,12 @@ ctrlboard-h7_imu/freertos.o: ..\Core\Src\freertos.c \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_compat.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\arm_acle.h \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\math.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\math.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio_ex.h \
@@ -58,13 +58,12 @@ ctrlboard-h7_imu/freertos.o: ..\Core\Src\freertos.c \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\event_groups.h \
   ..\User\APP\AGV_Chassis_Task.h ..\User\Devices\DJI_Motor\DJI_Motor.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdbool.h \
-  ..\User\Bsp\bsp_can.h ..\User\Algorithm\PID\pid.h \
-  ..\User\Devices\DM_Motor\DM_Motor.h ..\User\APP\INS_task.h \
-  ..\User\Devices\BMI088\BMI088driver.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdbool.h ..\User\Bsp\bsp_can.h \
+  ..\User\Algorithm\PID\pid.h ..\User\Devices\DM_Motor\DM_Motor.h \
+  ..\User\APP\INS_task.h ..\User\Devices\BMI088\BMI088driver.h \
   ..\User\Algorithm\EKF\QuaternionEKF.h \
   ..\User\Algorithm\kalman\kalman_filter.h \
   ..\Drivers\CMSIS\DSP\Include\arm_math.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\string.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\float.h \
-  D:\keil5\core\ARM\ARMCLANG\Bin\..\include\stdlib.h
+  D:\Keil\ARM\ARMCLANG\bin\..\include\string.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\float.h \
+  D:\Keil\ARM\ARMCLANG\bin\..\include\stdlib.h
