@@ -35,7 +35,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-extern void AGV_Chassis_Task(void* argument );
+//extern void AGV_Chassis_Task(void* argument );
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -111,7 +111,6 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   
-  //¶æÂÖµ×ÅÌÈÎÎñ
   xTaskCreate(AGV_Chassis_Task,"Chassis_Control_Task",1024,NULL,osPriorityNormal,&Chassis_Task_Handle_t);
   
   /* USER CODE END RTOS_THREADS */
@@ -133,6 +132,7 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+		AGV_Chassis_Task();
     osDelay(1);
   }
   /* USER CODE END StartDefaultTask */

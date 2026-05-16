@@ -29,7 +29,7 @@ DJI_Motor_Ctrl_Typedef DJI_3508_pid_set[4];          	//底盘3508电机控制结构体
 
 //电机信息结构体
 extern DJI_Motor_Info_Typedef chassis_3508_motor[4];           //底盘四个3508电机的信息结构体 
-extern DM_Motor_Info_Typedef Chassis_6220_DM_Motor[4];  //底盘四个6220电机的信息结构体
+extern DM_Motor_Info_Typedef Chassis_6220_DM_Motor[4];          //底盘四个6220电机的信息结构体
 
 //底盘控制模式
 Chassis_Mode chassis_mode = RC_NO_INIT; //初始状态为未初始化
@@ -51,7 +51,7 @@ SystemValue systemvalue=Initing;
 
 float pid[6] ={0,0,0,0,0,0};
 
-void AGV_Chassis_Task(void* argument )
+void AGV_Chassis_Task(void )
 {
     Motor_pid_init(); //电机PID初始化
     Chassis_DM_Motor_Enable();
@@ -84,7 +84,7 @@ void Chassis_DM_Motor_Enable(void)
 {
 	//转向电机使能
     Enable_Motor_Mode(&hfdcan1,0x01, Mit_mode, 1);
- 	Enable_Motor_Mode(&hfdcan2,0x02, Mit_mode, 1);
+ 	Enable_Motor_Mode(&hfdcan2,0x02, Mit_mode, 1);	
 	Enable_Motor_Mode(&hfdcan2,0x03, Mit_mode, 1);
 	Enable_Motor_Mode(&hfdcan1,0x04, Mit_mode, 1);
 }

@@ -11,7 +11,6 @@ typedef float fp32;
 //4782
 //2036
 
-//��е��λһ��Ҫ����0~4096�м��,�ǵ�
 #define L_Q_6020_Middle_ECD 7545.0f   
 #define L_H_6020_Middle_ECD 6101.0f
 #define R_H_6020_Middle_ECD 4782.0f
@@ -33,17 +32,14 @@ typedef float fp32;
 
 
 
-//���ӵ�����ļ��ٱ�
 #define CHASSIS_DECELE_RATIO 268.0f/17.0f 
 
 
 
-//��̨����̨����Ĵ�����
 #define GIMBAL_TO_4310  0.5f
 
 
 
-//ϵͳ����״̬
 typedef enum
 {
 Initing=0,
@@ -59,15 +55,15 @@ GIMBAL_FORWARD = 3,
 }Chassis_Mode;
 
 
-//�����ٶȽṹ��
+
 typedef struct chassis_speed
 {
-float vx;	//�����ٶ�
-float vy;	//�����ٶ�
-float vw;	//��ת�ٶ�(��ʱ��Ϊ��)	
+	float vx;  // 车体系X轴速度（前后方向，向前为正）
+    float vy;  // 车体系Y轴速度（左右方向，向左为正）
+    float vw;  // 旋转角速度（逆时针为正）
 }Chassis_Speed;
 
-void AGV_Chassis_Task(void* argument );
+void AGV_Chassis_Task();
 void AGV_Chassis_Init(void);
 void Wheel_Angle_Last_Init(void);
 void Motor_pid_init(void);
